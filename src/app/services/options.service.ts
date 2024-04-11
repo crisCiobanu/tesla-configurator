@@ -1,21 +1,7 @@
 import {inject, Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Model} from "./models.service";
-
-
-export interface Configuration {
-  id: number,
-  description: string,
-  range: number,
-  speed: number,
-  price: number
-}
-export interface Option {
-  configs: Configuration[],
-  towHitch: boolean,
-  yoke: boolean
-}
+import {Option} from "../shared/types/option";
 
 @Injectable({
   providedIn: 'root'
