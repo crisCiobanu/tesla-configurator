@@ -1,0 +1,16 @@
+:host {
+  display: grid;
+  place-items: center;
+}
+
+.tcc-app {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.image-wrapper {
+  width: 100%;
+
+}

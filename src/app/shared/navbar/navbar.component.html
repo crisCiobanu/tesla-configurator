@@ -1,0 +1,7 @@
+<nav>
+  <ul>
+    <li><button id="step1" routerLink="/first-step">Step 1</button></li>
+    <li><button id="step2" routerLink="/second-step" [disabled]="!(isModelSelected$ | async)">Step 2</button></li>
+    <li><button id="step3" routerLink="/third-step" [disabled]="!(isConfigSelected$ | async)">Step 3</button></li>
+  </ul>
+</nav>
