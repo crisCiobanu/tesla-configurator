@@ -1,6 +1,6 @@
 import {Component, inject} from '@angular/core';
 import {AsyncPipe, JsonPipe, NgForOf, NgIf, NgOptimizedImage} from '@angular/common';
-import {NavbarComponent} from "./shared/navbar/navbar.component";
+import {NavbarComponent} from "./shared/components/navbar/navbar.component";
 import {RouterOutlet} from "@angular/router";
 import {ConfiguratorService} from "./services/configurator.service";
 
