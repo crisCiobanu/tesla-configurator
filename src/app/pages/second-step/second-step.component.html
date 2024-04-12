@@ -1,7 +1,6 @@
 <h1>Step 2: Select your config and options</h1>
 
-<ng-container *ngIf="option$ | async as option">
-  <h1>Hello from options</h1>
+@if (option$ | async; as option) {
   <div>
     <div class="model-select">
       <h3>Config:</h3>
@@ -9,23 +8,21 @@
         <mat-label>Choose...</mat-label>
         <mat-select [formControl]="secondStepForm.controls.config" id="configSelect">
           <mat-option [value]="''">Choose...</mat-option>
-          <ng-container *ngFor="let config of option.configs">
+          @for (config of option.configs; track config.id) {
             <mat-option [value]="config.id">{{config.description}}</mat-option>
-          </ng-container>
+          }
         </mat-select>
       </mat-form-field>
       <!---->
     </div>
-    <ng-container *ngIf="isConfigSelected$ | async">
-      <p *ngIf="config$ | async as config">
-        Range: {{config.range}} miles - Max speed: {{config.speed}} - Cost: {{config.price | currency:'USD'}}
-      </p>
-    </ng-container>
-    <div *ngIf="option.towHitch">
-        <mat-checkbox id="includeTow" [formControl]="secondStepForm.controls.towHitch">Tow hitch</mat-checkbox>
-    </div>
-    <div *ngIf="option.yoke">
-      <mat-checkbox id="includeYoke" [formControl]="secondStepForm.controls.yoke">Yoke </mat-checkbox>
-    </div>
+    @if (config$ | async; as config) {
+      <p>Range: {{config.range}} miles - Max speed: {{config.speed}} - Cost: {{config.price | currency:'USD'}}</p>
+    }
+    @if (option.towHitch) {
+      <div><mat-checkbox id="includeTow" [formControl]="secondStepForm.controls.towHitch">Tow hitch</mat-checkbox></div>
+    }
+    @if(option.yoke) {
+      <div><mat-checkbox id="includeYoke" [formControl]="secondStepForm.controls.yoke">Yoke </mat-checkbox></div>
+    }
   </div>
-</ng-container>
+}

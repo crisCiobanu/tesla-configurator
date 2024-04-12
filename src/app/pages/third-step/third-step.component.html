@@ -1,6 +1,7 @@
 <h1>Step 3: Summary</h1>
 
-<ng-container *ngIf="{model: model$ | async, config: config$ | async, color: color$ | async, price: totalPrice$ | async} as vm">
+
+@if({model: model$ | async, config: config$ | async, color: color$ | async, price: totalPrice$ | async}; as vm) {
   <h2>Your Tesla {{vm.model?.description}}</h2>
   <div class="line">
     <p>{{vm.config?.description}}</p>
@@ -14,18 +15,22 @@
     <p>{{vm.color?.price | currency:'USD'}}</p>
   </div>
 
-  <div class="line" *ngIf="isTowHitchSelected$ | async">
-    <p>Tow hitch package</p>
-    <p>{{1000 | currency:'USD'}}</p>
-  </div>
+  @if (isTowHitchSelected$ | async) {
+    <div class="line">
+      <p>Tow hitch package</p>
+      <p>{{1000 | currency:'USD'}}</p>
+    </div>
+  }
 
-  <div class="line" *ngIf="isYokeSelected$ | async">
-    <p>Yoke steering wheel</p>
-    <p>{{1000 | currency:'USD'}}</p>
-  </div>
+  @if (isYokeSelected$ | async) {
+    <div class="line">
+      <p>Yoke steering wheel</p>
+      <p>{{1000 | currency:'USD'}}</p>
+    </div>
+  }
 
   <div class="line">
     <h2>Your final price </h2>
     <h2>{{vm.price | currency:'USD'}}</h2>
   </div>
-</ng-container>
+}

@@ -1,5 +1,5 @@
 import {Component, inject} from '@angular/core';
-import {AsyncPipe, CurrencyPipe, NgForOf, NgIf} from "@angular/common";
+import {AsyncPipe, CurrencyPipe } from "@angular/common";
 import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatOption} from "@angular/material/autocomplete";
 import {MatSelect} from "@angular/material/select";
@@ -16,8 +16,6 @@ import {ConfiguratorService} from "../../services/configurator.service";
     MatLabel,
     MatOption,
     MatSelect,
-    NgForOf,
-    NgIf,
     ReactiveFormsModule,
     CurrencyPipe,
     MatCheckbox

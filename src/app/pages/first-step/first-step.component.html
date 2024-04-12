@@ -1,35 +1,35 @@
 <h1>Step1: Choose your Model and color</h1>
 
-<ng-container *ngIf="models$ | async as models">
+@if (models$ | async; as models) {
   <div class="controls">
     <div class="model-select">
       <h3>Model:</h3>
       <mat-form-field>
         <mat-label>Choose...</mat-label>
         <mat-select [formControl]="firstStepForm.controls.model" (selectionChange)="onModelChanged()" id="modelSelect">
-          <ng-container *ngFor="let model of models">
+          @for (model of models; track model.code) {
             <mat-option [value]="model.code">{{model.description}}</mat-option>
-          </ng-container>
-        </mat-select>
-      </mat-form-field>
-<!---->
-    </div>
-
-<!--    <div class="color-select" *ngIf="showOptions$ | async">-->
-    <div class="color-select" *ngIf="showOptions$ | async">
-      <p>color:</p>
-      <mat-form-field>
-        <mat-label>Choose...</mat-label>
-        <mat-select [formControl]="firstStepForm.controls.color" id="colorSelect">
-          <ng-container *ngIf="colors$ | async as colors">
-            <mat-option *ngFor="let color of colors" [value]="color.code">{{color.description}}</mat-option>
-          </ng-container>
+          }
         </mat-select>
       </mat-form-field>
     </div>
 
-
+    @if (showOptions$ | async) {
+      <div class="color-select">
+        <p>color:</p>
+        <mat-form-field>
+          <mat-label>Choose...</mat-label>
+          <mat-select [formControl]="firstStepForm.controls.color" id="colorSelect">
+            @if(colors$ | async; as colors) {
+              @for (color of colors; track color.code) {
+                <mat-option [value]="color.code">{{color.description}}</mat-option>
+              }
+            }
+          </mat-select>
+        </mat-form-field>
+      </div>
+    }
   </div>
-</ng-container>
+}
 
 
