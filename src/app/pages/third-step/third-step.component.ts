@@ -21,6 +21,6 @@ export class ThirdStepComponent {
   config$ = this.configuratorService.config$;
   color$ = this.configuratorService.color$;
   totalPrice$ = this.configuratorService.totalPrice$;
-  isTowHitchSelected = this.configuratorService.isTowHitchSelected$;
-  isYokeSelected = this.configuratorService.isYokeSelected$;
+  isTowHitchSelected$ = this.configuratorService.isTowHitchSelected$;
+  isYokeSelected$ = this.configuratorService.isYokeSelected$;
 }

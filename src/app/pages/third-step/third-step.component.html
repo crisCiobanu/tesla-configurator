@@ -14,12 +14,12 @@
     <p>{{vm.color?.price | currency:'USD'}}</p>
   </div>
 
-  <div class="line" *ngIf="isTowHitchSelected | async">
+  <div class="line" *ngIf="isTowHitchSelected$ | async">
     <p>Tow hitch package</p>
     <p>{{1000 | currency:'USD'}}</p>
   </div>
 
-  <div class="line" *ngIf="isYokeSelected | async">
+  <div class="line" *ngIf="isYokeSelected$ | async">
     <p>Yoke steering wheel</p>
     <p>{{1000 | currency:'USD'}}</p>
   </div>
