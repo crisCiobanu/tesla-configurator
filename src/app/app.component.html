@@ -1,7 +1,9 @@
 <div class="tcc-app">
   <tcc-navbar></tcc-navbar>
   <router-outlet></router-outlet>
-  <div class="image-wrapper" *ngIf="showImg$ | async">
-    <img [src]="imgSrc$ | async" alt="">
-  </div>
+  @if(showImg$ | async) {
+    <div class="image-wrapper">
+      <img [src]="imgSrc$ | async" alt="">
+    </div>
+  }
 </div>

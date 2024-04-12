@@ -1,5 +1,5 @@
 import {Component, inject} from '@angular/core';
-import {AsyncPipe, CurrencyPipe, NgIf} from "@angular/common";
+import {AsyncPipe, CurrencyPipe} from "@angular/common";
 import {ConfiguratorService} from "../../services/configurator.service";
 
 @Component({
@@ -7,7 +7,6 @@ import {ConfiguratorService} from "../../services/configurator.service";
   standalone: true,
   imports: [
     AsyncPipe,
-    NgIf,
     CurrencyPipe
   ],
   templateUrl: './third-step.component.html',
@@ -15,7 +14,6 @@ import {ConfiguratorService} from "../../services/configurator.service";
 })
 export class ThirdStepComponent {
   private configuratorService = inject(ConfiguratorService)
-  secondStepForm = this.configuratorService.getForm().controls.secondStep
 
   model$ = this.configuratorService.model$;
   config$ = this.configuratorService.config$;

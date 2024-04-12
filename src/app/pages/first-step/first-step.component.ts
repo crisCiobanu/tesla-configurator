@@ -1,6 +1,6 @@
 import {Component, inject} from '@angular/core';
 import {MatFormField, MatLabel, MatOption, MatSelect} from "@angular/material/select";
-import {AsyncPipe, NgForOf, NgIf} from "@angular/common";
+import {AsyncPipe} from "@angular/common";
 import {ReactiveFormsModule} from "@angular/forms";
 import {ConfiguratorService} from "../../services/configurator.service";
 
@@ -13,8 +13,6 @@ import {ConfiguratorService} from "../../services/configurator.service";
     MatLabel,
     MatOption,
     AsyncPipe,
-    NgIf,
-    NgForOf,
     ReactiveFormsModule
   ],
   templateUrl: './first-step.component.html',
