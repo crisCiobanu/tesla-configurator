@@ -96,11 +96,15 @@ export class ConfiguratorService {
   )
 
   isConfigSelected$ = this.configChange$.pipe(
-    map(value => !!value)
+    map(value => !!value),
+    startWith(false),
+    shareReplay(1)
   )
 
   isModelSelected$ = this.firstStepChanges$.pipe(
     map(value => !!value.model && !!value.color),
+    startWith(false),
+    shareReplay(1)
   )
 
   isTowHitchSelected$ = this.secondStepChanges$.pipe(
